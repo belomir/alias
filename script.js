@@ -41,6 +41,7 @@
 						this[ev.currentTarget.id]();
 					});
 				});
+				document.querySelector('#splashScreen').addEventListener('click', ev=>{this.currentScreen = 'mainMenuScreen';});
 				this.gameIsOn = false;
 			});
 			window.addEventListener('load', evt=>{
