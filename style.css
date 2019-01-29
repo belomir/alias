@@ -1,0 +1,102 @@
+/* © Sergey Roganov aka belomir, 2019 */
+/* © Ро́ганов Сергей aka Беломир, 2019 */
+
+body {
+	margin: 0;
+	display: flex;
+	flex-flow: column nowrap;
+	height: 100vh;
+	font-size: large;
+	overflow: hidden;
+	position: relative;
+}
+
+/* screens */
+body > section {
+	flex: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	overflow-y: scroll;
+	display: flex;
+	flex-flow: column nowrap;
+	visibility: hidden;
+	height: 0;
+	opacity: 0;
+	transition: opacity 1s, height 0s 1s, visibility 0s 1s;
+}
+
+body > section[data-is-current='true'] {
+	visibility: visible;
+	height: 100vh;
+	opacity: 1;
+	transition: opacity 1s 1s, height 0s 1s, visibility 0s 1s;
+}
+
+body > section > header,
+body > section > footer {
+	text-align: center;
+}
+
+body > section > div {
+	flex: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+/* buttons */
+button {
+	font-size: medium;
+	padding: 1.5em;
+	width: 15em;
+	border: 2px solid transparent;
+	border-radius: 1em;
+	background: lightgray;
+	box-shadow: 0 .5em darkgray;
+	margin: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	transition: transform .1s, box-shadow .1s, color .1s, border-color .1s;
+}
+
+button::-moz-focus-inner {
+	border: 0;
+}
+
+button:focus {
+	border-color: rgba(0,0,0,.25);
+}
+
+button.green {
+	background: #9f9;
+	box-shadow: 0 .5em #8a8;
+}
+
+button.yellow {
+	background: #ff9;
+	box-shadow: 0 .5em #aa8;
+}
+
+button.red {
+	background: #f99;
+	box-shadow: 0 .5em #a88;
+}
+
+button.blue {
+	background: #99f;
+	box-shadow: 0 .5em #88a;
+}
+
+button:disabled {
+	background: lightgray;
+	box-shadow: 0 .5em darkgray;
+	pointer-events: none;
+}
+
+button:active {
+	transform: translateY(.4em);
+	box-shadow: 0 .1em gray;
+}
