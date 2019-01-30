@@ -9,6 +9,7 @@ body {
 	font-size: large;
 	overflow: hidden;
 	position: relative;
+	font-family: sans-serif;
 }
 
 /* screens */
@@ -39,6 +40,10 @@ body > section > footer {
 	text-align: center;
 }
 
+body > section > footer {
+	padding: 2em 0;
+}
+
 body > section > div {
 	flex: 1;
 	display: flex;
@@ -47,19 +52,28 @@ body > section > div {
 	justify-content: center;
 }
 
+/* inputs */
 /* buttons */
-button {
-	font-size: medium;
+button,
+label > input[type='radio'] ~ div,
+label > input[type='checkbox'] ~ div {
+	box-sizing: border-box;
+	font-size: large;
+	text-align: center;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 	padding: 1.5em;
 	width: 15em;
-	border: 2px solid transparent;
+	border: 1.5px solid transparent;
 	border-radius: 1em;
 	background: lightgray;
 	box-shadow: 0 .5em darkgray;
 	margin: 1em;
 	margin-left: auto;
 	margin-right: auto;
-	transition: transform .1s, box-shadow .1s, color .1s, border-color .1s;
+	transition: transform .1s, box-shadow .1s, color .25s, background-color .25s, border-color .1s;
 }
 
 button::-moz-focus-inner {
@@ -70,12 +84,16 @@ button:focus {
 	border-color: rgba(0,0,0,.25);
 }
 
-button.green {
+button.green,
+label > input[type='radio']:checked ~ div,
+label > input[type='checkbox']:checked ~ div {
 	background: #9f9;
 	box-shadow: 0 .5em #8a8;
 }
 
-button.yellow {
+button.yellow,
+label > input[type='radio']:not(:checked) ~ div,
+label > input[type='checkbox']:not(:checked) ~ div {
 	background: #ff9;
 	box-shadow: 0 .5em #aa8;
 }
@@ -90,13 +108,95 @@ button.blue {
 	box-shadow: 0 .5em #88a;
 }
 
-button:disabled {
+button:disabled,
+label > input[type='radio']:disabled ~ div,
+label > input[type='checkbox']:disabled ~ div {
 	background: lightgray;
 	box-shadow: 0 .5em darkgray;
 	pointer-events: none;
 }
 
-button:active {
+label > input[type='radio']:checked ~ div,
+label > input[type='checkbox']:checked ~ div {
 	transform: translateY(.4em);
 	box-shadow: 0 .1em gray;
+}
+
+button:active,
+label > input[type='radio'] ~ div:active,
+label > input[type='checkbox'] ~ div:active {
+	transform: translateY(.5em);
+	box-shadow: 0 0 gray;
+}
+
+/* radios */
+label > input[type='radio'],
+label > input[type='checkbox'] {
+	display: none;
+}
+
+.grid > label > input[type='radio'] ~ div,
+.grid > label > input[type='checkbox'] ~ div {
+	width: auto;
+	margin: 1em 0;
+}
+
+.grid > label:first-child > input[type='radio'] ~ div,
+.grid > label:first-child > input[type='checkbox'] ~ div {
+	border-radius: 1em 0 0 1em;
+}
+
+.grid > label:last-child > input[type='radio'] ~ div,
+.grid > label:last-child > input[type='checkbox'] ~ div {
+	border-radius: 0 1em 1em 0;
+}
+
+.grid > label:not(:first-child):not(:last-child) > input[type='radio'] ~ div,
+.grid > label:not(:first-child):not(:last-child) > input[type='checkbox'] ~ div {
+	border-radius: 0;
+}
+
+/* containers */
+.grid {
+	display: grid;
+	grid-gap: 1px;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+}
+
+.grid > * {
+	margin: 0;
+}
+
+@media (max-width: 50em) {
+	.grid {
+		grid-auto-flow: row;
+		grid-auto-rows: 1fr;
+		grid-gap: .25em;
+	}
+
+	.grid > label > input[type='radio'] ~ div,
+	.grid > label > input[type='checkbox'] ~ div {
+		margin: 0 1em;
+	}
+
+	.grid > label:first-child > input[type='radio'] ~ div,
+	.grid > label:first-child > input[type='checkbox'] ~ div {
+		border-radius: 1em 1em 0 0;
+	}
+
+	.grid > label:last-child > input[type='radio'] ~ div,
+	.grid > label:last-child > input[type='checkbox'] ~ div {
+		border-radius: 0 0 1em 1em;
+	}
+
+	.grid > label:not(:first-child):not(:last-child) > input[type='radio'] ~ div,
+	.grid > label:not(:first-child):not(:last-child) > input[type='checkbox'] ~ div {
+		border-radius: 0;
+	}
+}
+
+#newGameScreen header {
+	text-align: center; 
+	padding-top: 1em;
 }

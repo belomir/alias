@@ -33,11 +33,74 @@
 			<p>Lorem ipsum…</p>
 		</div>
 		<footer>
-			<button id='backToMainMenuButton'>&larr; Назад</button>
+			<button id='backToMainMenuButton'>&larr; Назад в меню</button>
 		</footer>
 	</section>
 	<section id='newGameScreen'>
-		<header><h1>newgame</h1></header>
+		<header><h1>Новая игра, настройки</h1></header>
+		<div>
+			<!-- команды ↻ -->
+			<!-- словарь/сложность -->
+			<div id='gameDurationType'>
+				<header>Продолжительность игры</header>
+				<div class='grid'>
+					<label class='toggle'>
+						<input id='byWords' type='radio' name='gameDuration' value='byWords'>
+						<div>По словам</div>
+					</label>
+					<label class='toggle'>
+						<input id='byRounds' type='radio' name='gameDuration' value='byRounds'>
+						<div>По раундам</div>
+					</label>
+				</div>
+			</div>
+			<!-- слов/раундов -->
+			<!-- время раунда -->
+			<div id='roundDuration'>
+				<header>Продолжительность Раунда</header>
+				<div class='grid'>
+					<!-- <label>
+						<input id='15s' type='radio' name='roundDuration' value='15s'>
+						<div>15 сек.</div>
+					</label>
+					<label>
+						<input id='30s' type='radio' name='roundDuration' value='30s'>
+						<div>30 сек.</div>
+					</label>
+					<label>
+						<input id='45s' type='radio' name='roundDuration' value='45s'>
+						<div>45 сек.</div>
+					</label>
+					<label>
+						<input id='1m' type='radio' name='roundDuration' value='1m'>
+						<div>1 мин.</div>
+					</label>
+					<label>
+						<input id='2m' type='radio' name='roundDuration' value='2m'>
+						<div>2 мин.</div>
+					</label> -->
+				</div>
+			</div>
+			<label>
+				<input id='penalty' type='checkbox'>
+				<div>Штраф за пропуск</div>
+			</label>
+			<label>
+				<input id='commonWords' type='checkbox'>
+				<div>Общие слова</div>
+			</label>
+			<label>
+				<input id='waitLastWord' type='checkbox'>
+				<div>Ждать последнее слово</div>
+			</label>
+			<label>
+				<input id='commonLastWord' type='checkbox'>
+				<div>Общее последнее слово</div>
+			</label>
+		</div>
+		<footer>
+			<button id='startGameButtton'>Поехали!</button>
+		</footer>
 	</section>
 </body>
 </html>
