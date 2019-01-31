@@ -43,7 +43,19 @@
 			<!-- словарь/сложность -->
 			<div id='gameDurationType'>
 				<header>Продолжительность игры</header>
-				<div class='grid'>
+				<select>
+					<option value='byWords'>по словам</option>
+					<option value='byRounds'>по раундам</option>
+				</select>
+				<!-- <select>
+					<option value='15s'>15 сек.</option>
+					<option value='30s'>30 сек.</option>
+					<option value='45s'>45 сек.</option>
+					<option value='60s'>60 сек. / 1 мин.</option>
+					<option value='90s'>90 сек. / 1,5 мин.</option>
+					<option value='120s'>120 сек. / 2 мин.</option>
+				</select> -->
+				<!-- <div class='grid'>
 					<label class='toggle'>
 						<input id='byWords' type='radio' name='gameDuration' value='byWords'>
 						<div>По словам</div>
@@ -52,10 +64,12 @@
 						<input id='byRounds' type='radio' name='gameDuration' value='byRounds'>
 						<div>По раундам</div>
 					</label>
-				</div>
+				</div> -->
 			</div>
-			<!-- слов/раундов -->
-			<!-- время раунда -->
+			<div id='amount'>
+				<header>до</header>
+				<input type='number' min='1' max='100' value='20'>
+			</div>
 			<div id='roundDuration'>
 				<header>Продолжительность Раунда</header>
 				<div class='grid'>

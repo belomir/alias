@@ -6,7 +6,7 @@ body {
 	display: flex;
 	flex-flow: column nowrap;
 	height: 100vh;
-	font-size: large;
+	/*font-size: large;*/
 	overflow: hidden;
 	position: relative;
 	font-family: sans-serif;
@@ -56,9 +56,11 @@ body > section > div {
 /* buttons */
 button,
 label > input[type='radio'] ~ div,
-label > input[type='checkbox'] ~ div {
+label > input[type='checkbox'] ~ div,
+input[type='number'],
+select {
 	box-sizing: border-box;
-	font-size: large;
+	font-size: medium;
 	text-align: center;
 	-ms-user-select: none;
 	-webkit-user-select: none;
